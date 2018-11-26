@@ -1,0 +1,23 @@
+.Spinner_Container {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5000;
+}
+
+.Loading {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.Animation {
+  position: relative;
+  z-index: 5001;
+  height: 5em;
+}

@@ -1,0 +1,35 @@
+.beerContainer {
+  display: flex;
+  flex-direction: column;
+  background: lightblue;
+  border-radius: 5px;
+  padding: 5px;
+  border: 2px solid lightskyblue;
+  box-shadow: 3px 4px 5px -1px rgba(0,0,0,0.75);
+
+
+  img {
+    width: auto;
+    height: 200px;
+    margin: 0 auto;
+  }
+  .beerName {
+    margin-top: 10px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: deeppink;
+    text-align: center;
+  }
+  .beerDescription{
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+  }
+}
