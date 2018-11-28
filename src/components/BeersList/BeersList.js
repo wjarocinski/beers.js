@@ -6,6 +6,7 @@ const BeersList = (props) => {
     const beers = props.beers.map((beer) => {
         return <BeerCard key={beer.id} beer={beer}/>
     });
+    
     return <div className={styles.beerList}>{beers}</div>
 };
 

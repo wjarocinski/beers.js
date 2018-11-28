@@ -1,7 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import BeersList from './components/BeersList/BeersList';
+import Details from './components/Details/Details';
+import Wrapper from './components/Wrapper/Wrapper';
 import Spinner from './components/Spinner/Spinner';
 
 class App extends React.Component {
@@ -52,17 +55,27 @@ class App extends React.Component {
         window.addEventListener('scroll', this.onScroll);
     };
 
+    componentWillUnmount(){
+        window.removeEventListener('scroll', this.onScroll);
+    };
+
     render() {
         const spinner = !this.state.isLoaded ? <Spinner /> : null;
         return (
-            <div className='AppContainer'>
-                {spinner}
+            <div>
                 <Header />
-                <BeersList beers={this.state.beers}/>
+                <BrowserRouter>
+                <Wrapper>
+                    <div className='AppContainer'>
+                        {spinner}
+                        <Route path="/" exact render={() => <BeersList beers={this.state.beers} />} />
+                        <Route path='/details/:id' component={Details} />
+                    </div>
+                </Wrapper>
+                </BrowserRouter>
             </div>
+            
         );
-
-
     }
 }
 export default App;

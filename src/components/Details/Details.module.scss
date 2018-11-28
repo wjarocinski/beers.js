@@ -1,0 +1,128 @@
+.Details_Container {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4000;
+}
+
+.Modal_Container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Modal {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    width: 45vw;
+    background: white;
+    border-radius: 5px;
+    padding: 1vw;
+    .Header {
+        display: flex;
+        font-size: 1.5rem;
+        justify-content: flex-end;
+        i {
+            cursor: pointer;
+        }
+    }
+    .Body {
+        padding-right: 1vw; 
+        display: flex;
+        img {
+            display: block;
+            max-height: 50vh;
+            padding: 20px;
+        }
+        .Information {
+            padding-left: 1.5vw;
+            width: 100%;
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: auto;
+            h1 {
+                margin: 0;
+                letter-spacing: -2px;
+                color: #FAD46B;
+                font-size: 2.5rem;
+            }
+            h3 {
+                margin: 1vh 0;
+                color: #ccc;
+                font-size: 1.2rem;
+            }
+            .Details {
+                display: flex;
+                justify-content: flex-start;
+                height: 5vh;
+                h4 {
+                    font-size: 1.5rem;
+                    font-weight: 300;
+                    span {
+                        font-weight: bold;
+                    }
+                    display: inline-block;
+                    margin: 0 1vw 0 0;
+                }
+            }
+            .Description {
+                font-size: 1.5rem;
+                color: #ccc;
+            }
+            .Best_Served {
+                margin: 1vh 0 0 0;
+                padding: 0;
+                font-size: 1.1rem;
+                list-style-type: none;
+                font-weight: bold;
+                li {
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+    .Footer {
+        padding-right: 1vw; 
+        h2 {
+            margin: 0 0 0 4vw;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .Similar {
+            display: flex;
+            padding: 1vw;
+            justify-content: space-around;
+        }
+    }
+}
+
+.Similar_Item {
+    display: flex;
+    flex-direction: column;
+    width: 8vw;
+    height: 8vw;
+    border: 1px solid #ccc;
+    span {
+        white-space: nowrap;
+        overflow: hidden;
+        width: 8vw;
+        text-overflow: ellipsis;
+        margin: 2px;
+        text-align: center;
+        display: block;
+    }
+    img {
+        margin: auto;
+        display: block;
+        height: 10vh;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}

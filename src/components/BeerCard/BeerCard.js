@@ -1,22 +1,23 @@
 import React from 'react';
-import styles from './BeerCard.module.scss'
+import styles from './BeerCard.module.scss';
+import { Link } from 'react-router-dom';
 
-class BeerCard extends React.Component {
-    render() {
-        return (
-            <div className={styles.beerContainer}>
-                <img
-                    src={this.props.beer.image_url}
-                    alt={this.props.beer.description}
-                />
+const BeerCard = (props) => {
+    // console.log(props)
+    return (
+        <div className={styles.beerContainer}>
+            <img
+                src={props.beer.image_url}
+                alt={props.beer.description}/>
+            <Link to={'/details/' + props.beer.id}>
                 <div className={styles.beerName}>
-                    {this.props.beer.name}
+                    {props.beer.name}
                 </div>
-                <div className={styles.beerDescription}>
-                    {this.props.beer.tagline}
-                </div>
+            </Link>
+            <div className={styles.beerDescription}>
+                {props.beer.tagline}
             </div>
-        )
-    }
+        </div>
+    );
 }
 export default BeerCard;
