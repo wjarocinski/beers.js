@@ -30,16 +30,16 @@ class Details extends React.Component {
         });
     };
     
-    componentDidMount(){
+    componentWillMount(){
         this.getBeer(this.props.match.params.id);
     };
 
-    shouldComponentUpdate(nextProps){
-        if(this.props.match.params.id !== nextProps.match.params.id){
-            return true;
-        }
-        return false;
-    };
+    // shouldComponentUpdate(nextProps){
+    //     if(this.props.match.params.id !== nextProps.match.params.id){
+    //         return true;
+    //     }
+    //     return false;
+    // };
 
     componentDidUpdate(nextProps) {
         if(this.props.match.params.id !== nextProps.match.params.id){
@@ -57,13 +57,46 @@ class Details extends React.Component {
 
 
     render(){
-        console.log(this.state.selectedBeer.length)
         if(this.state.selectedBeer.length === 0){
             return <Spinner />
         }
         return (
-            <div className={styles.DetailContainer}>
-                <div>hello</div>
+            <div className={styles.detailContainer}>
+                <div className={styles.modalContainer}>
+                    <div className={styles.modalContent}>
+                        <div className={styles.modalHeader}>
+                            <div className={styles.beerTitle}>
+                                <h1>{this.state.selectedBeer[0].name}</h1>
+                            </div>
+                            <i onClick={this.onClose} className="fas fa-times"></i>
+                        </div>
+                        <div className={styles.modalBody}>
+                            <div className={styles.beerImage}>
+                                <img src={this.state.selectedBeer[0].image_url}/>
+                            </div>
+                            <div className={styles.beerMeta}>
+                                <div className={styles.shortInfo}>
+                                    <p>IBU: {this.state.selectedBeer[0].ibu}</p>
+                                </div>
+                                <div className={styles.shortInfo}>
+                                    <p>ABV: {this.state.selectedBeer[0].abv} %</p>
+                                </div>
+                                <div className={styles.shortInfo}>
+                                    <p>EBC: {this.state.selectedBeer[0].ebc}</p>
+                                </div>
+                            </div>
+                            <div className={styles.beerDescription}>
+                                <p>{this.state.selectedBeer[0].description}</p>
+                            </div>
+                            <div className={styles.beerSuggestion}>
+                                <h3>Best served with:</h3>
+                                <p>{this.state.selectedBeer[0].food_pairing[0]}</p>
+                                <p>{this.state.selectedBeer[0].food_pairing[1]}</p>
+                                <p>{this.state.selectedBeer[0].food_pairing[2]}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         ); 
     };

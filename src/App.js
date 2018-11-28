@@ -4,7 +4,6 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import BeersList from './components/BeersList/BeersList';
 import Details from './components/Details/Details';
-import Wrapper from './components/Wrapper/Wrapper';
 import Spinner from './components/Spinner/Spinner';
 
 class App extends React.Component {
@@ -13,6 +12,7 @@ class App extends React.Component {
         this.state = {
             page: 1,
             beers: [],
+            allBeersLoaded: false,
             isLoaded: false
         };
     }
@@ -65,13 +65,11 @@ class App extends React.Component {
             <div>
                 <Header />
                 <BrowserRouter>
-                <Wrapper>
                     <div className='AppContainer'>
                         {spinner}
-                        <Route path="/" exact render={() => <BeersList beers={this.state.beers} />} />
+                        <Route path="/" render={() => <BeersList beers={this.state.beers} />} />
                         <Route path='/details/:id' component={Details} />
                     </div>
-                </Wrapper>
                 </BrowserRouter>
             </div>
             

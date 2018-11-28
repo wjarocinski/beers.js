@@ -1,14 +1,14 @@
-.Details_Container {
+.detailContainer {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 4000;
+    z-index: 4;
 }
 
-.Modal_Container {
+.modalContainer {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -16,75 +16,78 @@
     align-items: center;
 }
 
-.Modal {
+.modalContent {
+    position: relative;
     overflow: auto;
     display: flex;
     flex-direction: column;
-    width: 45vw;
+    width: 60vw;
+    height: 80vh;
     background: white;
     border-radius: 5px;
-    padding: 1vw;
-    .Header {
-        display: flex;
-        font-size: 1.5rem;
-        justify-content: flex-end;
+    padding: 10px;
+    .modalHeader {
+        .beerTitle{
+            position: relative;
+            top: 20px;
+            display: flex;
+            justify-content: center;
+            h1 {
+                font-size: 2rem;
+            }
+        }
         i {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 2rem;
             cursor: pointer;
         }
     }
-    .Body {
-        padding-right: 1vw; 
+
+    .modalBody {
+        padding: 0px; 
         display: flex;
-        img {
+        flex: 1;
+        flex-direction: row;
+        position: relative;
+        top: 40px;
+        .beerImage {
             display: block;
-            max-height: 50vh;
+            position: relative;
+            max-height: 500px;
             padding: 20px;
+            left: 40px; 
+            img{
+                height: 400px;
+            }
         }
-        .Information {
-            padding-left: 1.5vw;
-            width: 100%;
-            display: grid;
-            grid-template-columns: auto;
-            grid-template-rows: auto;
-            h1 {
-                margin: 0;
-                letter-spacing: -2px;
-                color: #FAD46B;
-                font-size: 2.5rem;
+        .beerMeta {
+            position: absolute;
+            display: block;
+            top: 30px;
+            left: 300px;
+            height: 100px;
+
+            .shortInfo{
+                font-size: 1.8rem;
+                margin-bottom: 6px;
             }
-            h3 {
-                margin: 1vh 0;
-                color: #ccc;
-                font-size: 1.2rem;
-            }
-            .Details {
-                display: flex;
-                justify-content: flex-start;
-                height: 5vh;
-                h4 {
-                    font-size: 1.5rem;
-                    font-weight: 300;
-                    span {
-                        font-weight: bold;
-                    }
-                    display: inline-block;
-                    margin: 0 1vw 0 0;
-                }
-            }
-            .Description {
-                font-size: 1.5rem;
-                color: #ccc;
-            }
-            .Best_Served {
-                margin: 1vh 0 0 0;
-                padding: 0;
-                font-size: 1.1rem;
-                list-style-type: none;
-                font-weight: bold;
-                li {
-                    font-weight: 400;
-                }
-            }
+        }
+        .beerDescription {
+            position: absolute;
+            top: 170px;
+            left: 300px;
+            width: 50%;
+            font-size: 1.3rem;
+            
+        }
+        .beerSuggestion {
+            position: absolute;
+            top: 400px;
+            left: 300px;
+            width: 50%;
+            font-size: 1.1rem;
         }
     }
     .Footer {
