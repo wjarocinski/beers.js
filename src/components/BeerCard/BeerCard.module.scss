@@ -1,35 +1,46 @@
 .beerContainer {
   display: flex;
   flex-direction: column;
-  background: lightblue;
+  background: #eeeded;
   border-radius: 5px;
   padding: 5px;
-  border: 2px solid lightskyblue;
-  box-shadow: 3px 4px 5px -1px rgba(0,0,0,0.75);
+  border: 2px solid #d3d2d2;
+  box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.45);
 
 
   img {
+    display:flex;
     width: auto;
-    height: 200px;
-    margin: 0 auto;
+    height: 250px;
+    margin: 10px auto;
   }
+  img:hover{
+    transition: 0.20s;
+    transform: rotate(10deg);
+  }
+
   .beerName {
     margin-top: 10px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 22px;
-    color: deeppink;
+    font-size: 26px;
+    color: rgba(241, 10, 10, 0.89);
     text-align: center;
+    line-height: 1.8rem;
   }
   .beerDescription{
     height: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
-    color: white;
+    font-size: 18px;
+    color: #999898;
     text-align: center;
   }
+}
+.beerContainer:hover{
+  transform: translateY(-5px);
+  box-shadow: 6px 8px 7px 3px rgba(0,0,0,0.45);
 }

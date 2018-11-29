@@ -12,6 +12,7 @@ class App extends React.Component {
         this.state = {
             page: 1,
             beers: [],
+            similarBeers: [],
             allBeersLoaded: false,
             isLoaded: false
         };

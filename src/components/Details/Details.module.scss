@@ -21,11 +21,12 @@
     overflow: auto;
     display: flex;
     flex-direction: column;
-    width: 60vw;
-    height: 80vh;
+    width: 50vw;
+    height: 85vh;
     background: white;
     border-radius: 5px;
     padding: 10px;
+    overflow: hidden;
     .modalHeader {
         .beerTitle{
             position: relative;
@@ -33,7 +34,8 @@
             display: flex;
             justify-content: center;
             h1 {
-                font-size: 2rem;
+                font-family: 'Anton', sans-serif;
+                font-size: 3rem;
             }
         }
         i {
@@ -44,7 +46,6 @@
             cursor: pointer;
         }
     }
-
     .modalBody {
         padding: 0px; 
         display: flex;
@@ -52,80 +53,83 @@
         flex-direction: row;
         position: relative;
         top: 40px;
-        .beerImage {
-            display: block;
+        .imgContainer {
+            display: inline;
             position: relative;
             max-height: 500px;
-            padding: 20px;
             left: 40px; 
             img{
                 height: 400px;
             }
         }
-        .beerMeta {
-            position: absolute;
-            display: block;
-            top: 30px;
-            left: 300px;
-            height: 100px;
+        .beerDetails{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            left: 100px;
 
-            .shortInfo{
-                font-size: 1.8rem;
-                margin-bottom: 6px;
+            .beerMeta {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 20px;
+    
+                .shortInfo{
+                    margin-right: 20px;
+                    font-size: 1.6rem;
+                    margin-bottom: 6px;
+                }
+            }
+            .beerDescription {
+                margin-bottom: 20px;
+                width: 65%;
+                font-size: 1rem;
+                color: rgb(141, 137, 137); 
+                
+            }
+            .beerSuggestion {
+                color: rgb(240, 114, 12);
+                width: 50%;
+                font-size: 1rem;
+            }
+            .label {
+                display: flex;
+                position: relative;
+                justify-content: center;
+                right: 50px;
+                margin: 20px 0px;
             }
         }
-        .beerDescription {
-            position: absolute;
-            top: 170px;
-            left: 300px;
-            width: 50%;
-            font-size: 1.3rem;
-            
-        }
-        .beerSuggestion {
-            position: absolute;
-            top: 400px;
-            left: 300px;
-            width: 50%;
-            font-size: 1.1rem;
-        }
     }
-    .Footer {
-        padding-right: 1vw; 
-        h2 {
-            margin: 0 0 0 4vw;
-            font-weight: bold;
-            font-size: 1rem;
-        }
-        .Similar {
+    .similarContainer{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .similarBeers{
             display: flex;
-            padding: 1vw;
-            justify-content: space-around;
-        }
-    }
-}
-
-.Similar_Item {
-    display: flex;
-    flex-direction: column;
-    width: 8vw;
-    height: 8vw;
-    border: 1px solid #ccc;
-    span {
-        white-space: nowrap;
-        overflow: hidden;
-        width: 8vw;
-        text-overflow: ellipsis;
-        margin: 2px;
-        text-align: center;
-        display: block;
-    }
-    img {
-        margin: auto;
-        display: block;
-        height: 10vh;
-    }
-    &:hover {
-        cursor: pointer;
+            flex-direction: row;
+            justify-content: center;
+            .simBeer{
+                padding: 5px;
+                display: flex;
+                flex-direction: column;
+                height: 180px;
+                width: 160px;
+                border: 2px solid rgb(151, 151, 151);
+                border-radius: 5px;
+                margin: 10px 15px;
+                h4 {
+                    justify-content: center;
+                    text-align: center;
+                }
+                img{
+                    justify-content: center;
+                    align-items: center;
+                    height: 100px;
+                    margin: auto;
+                }
+            }
+        }  
     }
 }
