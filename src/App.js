@@ -25,14 +25,21 @@ class App extends React.Component {
         return Math.ceil(scrollTop + clientHeight) >= scrollHeight;
     };
     addBeersAndIncrementPage = (response) => {
-        this.setState({
-            page: this.state.page + 1,
-            beers: [
-                ...this.state.beers,
-                ...response.data
-            ],
-            isLoaded: true
-        })
+        if(response.data !== 0){
+            this.setState({
+                page: this.state.page + 1,
+                beers: [
+                    ...this.state.beers,
+                    ...response.data
+                ],
+                isLoaded: true
+            });
+        }
+        else {
+            this.setState({
+                allBeersLoaded: true
+            });
+        }
     };
     getBeers = () => {
             window.removeEventListener('scroll', this.onScroll);
@@ -44,7 +51,7 @@ class App extends React.Component {
     };
 
     onScroll = () => {
-        if (this.isScrolledToBottom()) {
+        if (this.isScrolledToBottom() || this.state.allBeersLoaded) {
             this.setState({ isLoaded: false });
             this.getBeers();
         }

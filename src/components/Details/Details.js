@@ -42,7 +42,6 @@ class Details extends React.Component {
                     simBeer
                 ]
             });
-            console.log(this.state.similarBeers)
         });
     };
     componentWillUpdate(){
@@ -73,7 +72,7 @@ class Details extends React.Component {
 
 
     render(){
-        if(this.state.selectedBeer.length === 0 || this.state.similarBeers.length !== 3){
+        if(this.state.selectedBeer.length === 0 || this.state.similarBeers.length < 3){
             return <Spinner />
         }
         return (

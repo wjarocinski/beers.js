@@ -1,0 +1,9 @@
+@import 'components/BeersList/BeersList.module.scss';
+@import 'components/BeerCard/BeerCard.module.scss';
+@import './components//Details/Details.module.scss';
+@import './components/Header/Header.module.scss';
+
+.AppContainer{
+  position: relative;
+  top: 120px;
+}
