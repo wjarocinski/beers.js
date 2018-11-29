@@ -20,10 +20,7 @@ class Details extends React.Component {
         axios.get(`https://api.punkapi.com/v2/beers/${id}`
         ).then(response => {
             this.setState({
-                    selectedBeer: [
-                        ...this.state.selectedBeer,
-                        ...response.data
-                    ],
+                    selectedBeer: response.data,
                     isLoaded: true
                 })
         });
@@ -35,8 +32,9 @@ class Details extends React.Component {
             axios.get('https://api.punkapi.com/v2/beers/random'),
             axios.get('https://api.punkapi.com/v2/beers/random')
         ]);
+        this.setState({similarBeers: []})
         
-        return similarBeers.map(similarBeer => {
+        similarBeers.map(similarBeer => {
             let simBeer = similarBeer.data[0]
             this.setState({
                 similarBeers: [
@@ -44,8 +42,15 @@ class Details extends React.Component {
                     simBeer
                 ]
             });
+            console.log(this.state.similarBeers)
         });
     };
+    componentWillUpdate(){
+        if(this.props.history.location.pathname.split("/")[2] !== this.props.match.params.id){
+            this.getBeer(this.props.history.location.pathname.split("/")[2]);
+            this.getSimilarBeers();
+        }
+    }
     
     componentDidMount(){
         this.getBeer(this.props.match.params.id);
@@ -68,7 +73,7 @@ class Details extends React.Component {
 
 
     render(){
-        if(this.state.selectedBeer.length === 0  || !this.state.similarBeers.length === 3){
+        if(this.state.selectedBeer.length === 0 || this.state.similarBeers.length !== 3){
             return <Spinner />
         }
         return (
